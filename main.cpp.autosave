@@ -1,0 +1,31 @@
+#include "cli.hh"
+#include "hospital.hh"
+#include <string>
+/* Muistipeli
+ *
+ * Kuvaus:
+ * Ohjelman tarkoitus on pitää merkillä sairaalassa käyviä asiakkaita sekä henkilökuntaa.
+ * heiltä otetaan ylös nimi sekä päivämäärä, jolloin he ovat kirjatuneet sairaalaa. Poistuessa
+ * tehdään sama toimenpide. Myös henkilökunnalle on oma kirjautminen. Potilaita voidaan kirjata
+ * henkilökunnalle ja myös lääkkeitä voi määrätä. Kaikki tiedot tallennetaan rekisteriin josta
+ * tarvittaessa voidaan tulostaa ne. Potilas voi halutessaan myös saada koko hoito historiansa.
+ * 
+ * Ohjelman kirjoittaja 
+ * Nimi: Aaro Tuohi
+ * Opiskelijanumero: 050280618
+ * Kayttajatunnus: msaatu
+ * E-Mail: aaro.tuohi@tuni.fi
+ 
+ * */
+const std::string PROMPT = "Hosp> ";
+
+
+int main()
+{
+    Hospital* hospital = new Hospital();
+    Cli cli(hospital, PROMPT);
+    while ( cli.exec() ){}
+
+    delete hospital;
+    return EXIT_SUCCESS;
+}
